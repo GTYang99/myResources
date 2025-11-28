@@ -3,9 +3,11 @@ package com.example.myresources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     CheckBox checkBox;
     RadioGroup radioGroup;
 
+    Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         checkBox = findViewById(R.id.checkbox);
         radioGroup = findViewById(R.id.radioGroup);
+        spinner = findViewById(R.id.spinner);
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -51,6 +57,17 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+        String[] courses = {"Apple", "Banana", "Grapes", "Orange"};
+
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                courses
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
     }
 
     @Override
