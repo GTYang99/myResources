@@ -3,7 +3,23 @@
     <style name="Base.Theme.MyResources" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorPrimary">@color/blue_sky</item>
+        android:actionBarStyle
+
+    </style>
+    <style name="MyAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- 設定 ActionBar 的樣式 -->
+        <item name="android:actionBarStyle">@style/MyActionBarStyle</item>
+    </style>
+    <style name="MyActionBarStyle" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:background">#FF5722</item>
+        <item name="android:titleTextStyle">@style/MyActionBarTitleText</item>
     </style>
 
+    <style name="MyActionBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+    </style>
     <style name="Theme.MyResources" parent="Base.Theme.MyResources" />
 </resources>
