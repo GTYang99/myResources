@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme">
-<!--        android:theme="@style/Theme.MyResources">-->
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
+        <!-- android:theme="@style/Theme.MyResources"> -->
         <activity
             android:name=".MainActivity"
             android:exported="true">

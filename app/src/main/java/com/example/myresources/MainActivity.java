@@ -1,13 +1,16 @@
 package com.example.myresources;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -23,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroup;
 
     Spinner spinner;
+
+    TimePicker timePicker;
+
+    Button btn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +74,23 @@ public class MainActivity extends AppCompatActivity {
                 courses
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        timePicker = findViewById(R.id.timerPicker);
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                // Handle Time Change
+                Toast.makeText(MainActivity.this,
+                        hourOfDay + ":" + minute,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn = findViewById(R.id.btnNext);
+        btn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            startActivity(intent);
+        });
 
         spinner.setAdapter(adapter);
     }
